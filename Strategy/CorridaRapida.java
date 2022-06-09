@@ -1,4 +1,4 @@
-package Corridas;
+package Strategy;
 
 public class CorridaRapida implements Correr
 {

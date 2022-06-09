@@ -1,4 +1,4 @@
-package Pulos;
+package Strategy;
 
 public class PuloBaixo implements Pulo
 {

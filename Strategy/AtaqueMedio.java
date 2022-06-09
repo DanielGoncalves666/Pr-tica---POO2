@@ -1,4 +1,4 @@
-package Ataques;
+package Strategy;
 
 public class AtaqueMedio implements Ataque
 {
