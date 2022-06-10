@@ -1,4 +1,5 @@
 import Strategy.*;
+import Escudos.*;
 
 /**
  * Classe abstrata Personagem
@@ -8,6 +9,7 @@ public class Personagem
 {
     private double Life;
     private LifeState vida;
+    private Escudo prox;
     
     private Ataque atk;
     private Correr run;
@@ -18,12 +20,21 @@ public class Personagem
         this.setLife(70.0);
         this.setLifeState(new Normal(this));
         this.setPulo(new PuloMedio()); // para nao ficar incompleto
+        this.prox = null; // indica que nao ha escudos
     }
     
     public void sofrerDano(double dano)
     {
-        this.vida.sofrerDano(dano);
-        System.out.print("-" + dano + "HP\n");
+        double novoDano = dano;
+        
+        if(prox != null) // se houver um escudo equipado
+        {
+            novoDano = prox.processaDefesa(dano);  
+            System.out.print("** " + (dano - novoDano) + " Defendido\n");
+        }
+        
+        this.vida.sofrerDano(novoDano);
+        System.out.print("-" + novoDano + "HP\n");
     }
     
     public void recuperarVida(double recuperar)
@@ -90,5 +101,12 @@ public class Personagem
     public double getLife()
     {
          return this.Life;   
+    }
+    
+    public void adicionarEscudo(Escudo novo)
+    {
+        // o primeiro escudo adicionado sera o ultima da lista
+        novo.setProx(this.prox);
+        this.prox = novo;
     }
 }
