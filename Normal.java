@@ -12,8 +12,8 @@ public class Normal extends LifeState
     
     public void setLimites()
     {
-        this.setLimiteInferior(30.0);
-        this.setLimiteSuperior(70.0);
+        this.setLimiteInferior(30);
+        this.setLimiteSuperior(70);
     }
     
     public void verificarAlteracaoEstado()

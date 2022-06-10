@@ -2,8 +2,8 @@ public abstract class LifeState
 {
     private Personagem personagem;
     
-    private double limiteInferior;
-    private double limiteSuperior;
+    private int limiteInferior;
+    private int limiteSuperior;
     
     public LifeState(Personagem p)
     {
@@ -11,24 +11,24 @@ public abstract class LifeState
         setLimites();
     }
     
-    public void sofrerDano(double dano)
+    public void sofrerDano(int dano)
     {
         this.personagem.setLife(this.personagem.getLife() - dano);
         verificarAlteracaoEstado();
     }
 
-    public void recuperarVida(double recuperar)
+    public void recuperarVida(int recuperar)
     {
         this.personagem.setLife(this.personagem.getLife() + recuperar);
         verificarAlteracaoEstado();
     }
     
-    public void setLimiteInferior(double inferior)
+    public void setLimiteInferior(int inferior)
     {
         this.limiteInferior = inferior;
     }
     
-    public void setLimiteSuperior(double superior)
+    public void setLimiteSuperior(int superior)
     {
         this.limiteSuperior = superior;
     }

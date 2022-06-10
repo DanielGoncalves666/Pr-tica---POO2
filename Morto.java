@@ -7,8 +7,8 @@ public class Morto extends LifeState
     
     public void setLimites()
     {
-        this.setLimiteInferior(0.0);
-        this.setLimiteSuperior(0.0);
+        this.setLimiteInferior(0);
+        this.setLimiteSuperior(0);
     }
     
     public void verificarAlteracaoEstado()

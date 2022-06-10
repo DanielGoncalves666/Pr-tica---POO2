@@ -2,5 +2,5 @@ package Strategy;
 
 public interface Ataque
 {
-    public abstract void ataque();
+    public abstract int ataque();
 }

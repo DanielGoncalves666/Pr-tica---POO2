@@ -1,6 +1,6 @@
 // Personagens01, 02 e 03 removidos à partir da inclusão do padrão State
 
-public class Principal-Strategy
+public class PrincipalStrategy
 {
     public static void main(String args[])
     {

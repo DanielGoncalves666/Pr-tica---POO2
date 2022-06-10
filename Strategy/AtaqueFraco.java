@@ -2,8 +2,9 @@ package Strategy;
 
 public class AtaqueFraco implements Ataque
 {
-    public void ataque()
+    public int ataque()
     {
         System.out.print("Ataque fraco\n");
+        return 5;
     }
 }

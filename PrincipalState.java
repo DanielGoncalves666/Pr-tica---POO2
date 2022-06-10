@@ -1,14 +1,11 @@
-import Escudos.*;
+// Personagens01, 02 e 03 removidos à partir da inclusão do padrão State
 
-public class Principal-Chain 
+public class PrincipalState
 {
     public static void main(String args[])
     {
         Personagem Mario = new Personagem();
-        
-        Mario.adicionarEscudo(new Escudo1());
-        Mario.adicionarEscudo(new Escudo5());
-        
+
         // normal
         Mario.atacar();
         Mario.correr();
@@ -43,11 +40,13 @@ public class Principal-Chain
         Mario.correr();
         System.out.print("\n");
         
-        // perigo
+        // morto
         Mario.sofrerDano(100.0);
         Mario.printLifeState();
         Mario.atacar();
         Mario.correr();
         System.out.print("\n");
+       
     }
 }
+

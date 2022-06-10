@@ -13,8 +13,8 @@ public class Perigo extends LifeState
     
     public void setLimites()
     {
-        this.setLimiteInferior(0.01);
-        this.setLimiteSuperior(29.99);
+        this.setLimiteInferior(1);
+        this.setLimiteSuperior(29);
     }
     
     public void verificarAlteracaoEstado()

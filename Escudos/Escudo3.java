@@ -2,7 +2,7 @@ package Escudos;
 
 public class Escudo3 extends Escudo
 {
-    public double processaDefesa(double ataque)
+    public int processaDefesa(int ataque)
     {
         ataque -= 3;
         if(ataque < 0)

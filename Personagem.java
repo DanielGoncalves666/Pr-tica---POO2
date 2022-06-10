@@ -7,7 +7,7 @@ import Escudos.*;
 
 public class Personagem
 {
-    private double Life;
+    private int Life;
     private LifeState vida;
     private Escudo prox;
     
@@ -17,15 +17,15 @@ public class Personagem
     
     public Personagem()
     {
-        this.setLife(70.0);
+        this.setLife(70);
         this.setLifeState(new Normal(this));
         this.setPulo(new PuloMedio()); // para nao ficar incompleto
         this.prox = null; // indica que nao ha escudos
     }
     
-    public void sofrerDano(double dano)
+    public void sofrerDano(int dano)
     {
-        double novoDano = dano;
+        int novoDano = dano;
         
         if(prox != null) // se houver um escudo equipado
         {
@@ -37,7 +37,7 @@ public class Personagem
         System.out.print("-" + novoDano + "HP\n");
     }
     
-    public void recuperarVida(double recuperar)
+    public void recuperarVida(int recuperar)
     {
         this.vida.recuperarVida(recuperar);
         System.out.print("+" + recuperar + "HP\n");
@@ -73,12 +73,12 @@ public class Personagem
         this.jump = novo;
     }
     
-    public void setLife(double valor)
+    public void setLife(int valor)
     {
-        if(valor < 0.0)
-            this.Life = 0.0;
-        else if(valor > 100.0)
-            this.Life = 100.0;
+        if(valor < 0)
+            this.Life = 0;
+        else if(valor > 100)
+            this.Life = 100;
         else      
             this.Life = valor;
     }
@@ -98,7 +98,7 @@ public class Personagem
         System.out.print(this.vida.toString().substring(0, this.vida.toString().indexOf('@')) + "\n");
     }
 
-    public double getLife()
+    public int getLife()
     {
          return this.Life;   
     }

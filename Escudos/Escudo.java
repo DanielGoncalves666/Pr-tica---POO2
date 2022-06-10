@@ -18,5 +18,5 @@ public abstract class Escudo
         return this.prox;
     }
     
-    public abstract double processaDefesa(double ataque);
+    public abstract int processaDefesa(int ataque);
 }

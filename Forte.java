@@ -12,8 +12,8 @@ public class Forte extends LifeState
     
     public void setLimites()
     {
-        this.setLimiteInferior(70.01);
-        this.setLimiteSuperior(100.0);
+        this.setLimiteInferior(70);
+        this.setLimiteSuperior(100);
     }
     
     public void verificarAlteracaoEstado()
