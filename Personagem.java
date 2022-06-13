@@ -43,9 +43,9 @@ public class Personagem
         System.out.print("+" + recuperar + "HP\n");
     }
     
-    public void atacar()
+    public int atacar()
     {
-        this.atk.ataque();    
+        return this.atk.ataque();    
     }
     
     public void correr()
@@ -61,6 +61,25 @@ public class Personagem
     public void setAtaque(Ataque novo)
     {
         this.atk = novo;
+    }
+    
+    public void adiconarPoderAtaque(int tipo)
+    {
+        switch(tipo)
+        {
+            case 1:// fogo
+                atk = new Fogo(atk);
+                break;
+            case 2:// gelo
+                atk = new Gelo(atk);
+                break;
+            case 3:// trovao
+                atk = new Trovao(atk);
+                break;
+            default:// invalido
+                // faz nada
+                break;
+        }
     }
     
     public void setCorrida(Correr nova)
