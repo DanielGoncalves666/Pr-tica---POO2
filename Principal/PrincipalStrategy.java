@@ -1,4 +1,4 @@
-// Personagens01, 02 e 03 removidos à partir da inclusão do padrão State
+/* Personagens01, 02 e 03 removidos à partir da inclusão do padrão State
 
 public class PrincipalStrategy
 {
@@ -22,3 +22,4 @@ public class PrincipalStrategy
         
     }
 }
+*/

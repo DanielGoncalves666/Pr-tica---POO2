@@ -1,3 +1,6 @@
+package Estados;
+
+import Personagem.*;
 import Strategy.*;
 
 public class Forte extends LifeState

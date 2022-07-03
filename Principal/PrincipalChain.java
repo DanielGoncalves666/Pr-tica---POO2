@@ -1,3 +1,4 @@
+/*import Personagem.Personagem;
 import Escudos.*;
 
 public class PrincipalChain 
@@ -51,3 +52,4 @@ public class PrincipalChain
         System.out.print("\n");
     }
 }
+*/

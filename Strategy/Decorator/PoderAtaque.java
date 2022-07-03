@@ -1,4 +1,6 @@
-package Strategy;
+package Strategy.Decorator;
+
+import Strategy.Ataque;
 
 public abstract class PoderAtaque implements Ataque
 {

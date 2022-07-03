@@ -1,3 +1,6 @@
+/*
+import Personagem.Personagem;
+
 // Personagens01, 02 e 03 removidos à partir da inclusão do padrão State
 
 public class PrincipalState
@@ -49,4 +52,4 @@ public class PrincipalState
        
     }
 }
-
+*/

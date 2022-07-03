@@ -1,3 +1,7 @@
+package Personagem;
+
+import Strategy.Decorator.*;
+import Estados.*;
 import Strategy.*;
 import Escudos.*;
 
@@ -5,11 +9,11 @@ import Escudos.*;
  * Classe abstrata Personagem
  */
 
-public class Personagem
+public abstract class Personagem
 {
     private int Life;
     private LifeState vida;
-    private Escudo prox;
+    private Escudo prox = null;
     
     private Ataque atk;
     private Correr run;
@@ -43,9 +47,10 @@ public class Personagem
         System.out.print("+" + recuperar + "HP\n");
     }
     
-    public int atacar()
+    public void atacar(Personagem atacado)
     {
-        return this.atk.ataque();    
+        int dano = this.atk.ataque();
+        atacado.sofrerDano(dano);
     }
     
     public void correr()

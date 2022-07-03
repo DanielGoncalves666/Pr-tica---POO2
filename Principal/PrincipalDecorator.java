@@ -1,3 +1,6 @@
+/*package Principal;
+
+import Personagem.Personagem;
 import Escudos.*;
 
 public class PrincipalDecorator
@@ -57,3 +60,4 @@ public class PrincipalDecorator
         System.out.print("\n");
     }
 }
+*/

@@ -1,3 +1,7 @@
+package Estados;
+
+import Personagem.*;
+
 public abstract class LifeState
 {
     private Personagem personagem;

@@ -1,3 +1,7 @@
+package Estados;
+
+import Personagem.*;
+
 public class Morto extends LifeState
 {
     public Morto(Personagem p)
