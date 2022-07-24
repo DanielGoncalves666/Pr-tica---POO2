@@ -5,12 +5,19 @@ import Strategy.*;
 
 public class Forte extends LifeState
 {
-    public Forte(Personagem p)
+    private static Forte instancia = null;
+    
+    private Forte()
     {
-        super(p);  
-        this.getPersonagem().setAtaque(new AtaqueForte());
-        this.getPersonagem().setCorrida(new CorridaRapida());
-        // ataque forte e velocidade rapida
+        super();
+    }
+    
+    public static synchronized Forte getInstancia()
+    {
+        if(instancia == null)
+            instancia = new Forte();
+        
+        return instancia;
     }
     
     public void setLimites()
@@ -19,12 +26,20 @@ public class Forte extends LifeState
         this.setLimiteSuperior(100);
     }
     
-    public void verificarAlteracaoEstado()
+    public void verificarAlteracaoEstado(Personagem p)
     {
-         if(this.getPersonagem().getLife() < this.getLimiteInferior())
+         if(p.getLife() < this.getLimiteInferior())
         {
-            this.getPersonagem().setLifeState(new Normal(this.getPersonagem()));
-            this.getPersonagem().getLifeState().verificarAlteracaoEstado();            
+            p.setLifeState(Normal.getInstancia());
+            p.getLifeState().alterarEstrategias(p);
+            p.getLifeState().verificarAlteracaoEstado(p);            
         }
+    }
+    
+    protected void alterarEstrategias(Personagem p)
+    {
+        p.setAtaque( AtaqueForte.getInstancia());
+        p.setCorrida( CorridaRapida.getInstancia());
+        // ataque medio e velocidade media   
     }
 }

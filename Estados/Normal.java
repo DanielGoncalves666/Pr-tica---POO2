@@ -5,12 +5,19 @@ import Strategy.*;
 
 public class Normal extends LifeState
 {
-    public Normal(Personagem p)
+    private static Normal instancia = null;
+    
+    private Normal()
     {
-        super(p);
-        this.getPersonagem().setAtaque(new AtaqueMedio());
-        this.getPersonagem().setCorrida(new CorridaMedia());
-        // ataque medio e velocidade media
+        super();
+    }
+    
+    public static synchronized Normal getInstancia()
+    {
+        if(instancia == null)
+            instancia = new Normal();
+        
+        return instancia;
     }
     
     public void setLimites()
@@ -19,16 +26,26 @@ public class Normal extends LifeState
         this.setLimiteSuperior(70);
     }
     
-    public void verificarAlteracaoEstado()
+    public void verificarAlteracaoEstado(Personagem p)
     {
-        if(this.getPersonagem().getLife() < this.getLimiteInferior())
+        if(p.getLife() < this.getLimiteInferior())
         {
-            this.getPersonagem().setLifeState(new Perigo(this.getPersonagem()));
-            this.getPersonagem().getLifeState().verificarAlteracaoEstado();
+            p.setLifeState(Perigo.getInstancia());
+            p.getLifeState().alterarEstrategias(p);
+            p.getLifeState().verificarAlteracaoEstado(p);
         }
-        else if(this.getPersonagem().getLife() > this.getLimiteSuperior())
+        else if(p.getLife() > this.getLimiteSuperior())
         {            
-            this.getPersonagem().setLifeState(new Forte(this.getPersonagem()));
+            p.setLifeState( Forte.getInstancia());
+            p.getLifeState().alterarEstrategias(p);
         }
     }
+    
+    protected void alterarEstrategias(Personagem p)
+    {
+        p.setAtaque( AtaqueMedio.getInstancia());
+        p.setCorrida( CorridaMedia.getInstancia());
+        // ataque medio e velocidade media   
+    }
+
 }

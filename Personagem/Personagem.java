@@ -22,8 +22,8 @@ public abstract class Personagem
     public Personagem()
     {
         this.setLife(70);
-        this.setLifeState(new Normal(this));
-        this.setPulo(new PuloMedio()); // para nao ficar incompleto
+        this.setLifeState(Normal.getInstancia());
+        this.setPulo(PuloMedio.getInstancia()); // para nao ficar incompleto
         this.prox = null; // indica que nao ha escudos
     }
     
@@ -37,13 +37,13 @@ public abstract class Personagem
             System.out.print("** " + (dano - novoDano) + " Defendido\n");
         }
         
-        this.vida.sofrerDano(novoDano);
+        this.vida.sofrerDano(this,novoDano);
         System.out.print("-" + novoDano + "HP\n");
     }
     
     public void recuperarVida(int recuperar)
     {
-        this.vida.recuperarVida(recuperar);
+        this.vida.recuperarVida(this,recuperar);
         System.out.print("+" + recuperar + "HP\n");
     }
     

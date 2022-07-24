@@ -5,13 +5,19 @@ import Strategy.*;
 
 public class Perigo extends LifeState
 {
-    public Perigo(Personagem p)
+    private static Perigo instancia = null;
+    
+    private Perigo()
     {
-        super(p);   
+        super();
+    }
+    
+    public static synchronized Perigo getInstancia()
+    {
+        if(instancia == null)
+            instancia = new Perigo();
         
-        this.getPersonagem().setAtaque(new AtaqueFraco());
-        this.getPersonagem().setCorrida(new CorridaDevagar());
-        // ataque fraco e velocidade lenta
+        return instancia;
     }
     
     public void setLimites()
@@ -20,16 +26,25 @@ public class Perigo extends LifeState
         this.setLimiteSuperior(29);
     }
     
-    public void verificarAlteracaoEstado()
+    public void verificarAlteracaoEstado(Personagem p)
     {
-        if(this.getPersonagem().getLife() < this.getLimiteInferior())
+        if(p.getLife() < this.getLimiteInferior())
         {
-            this.getPersonagem().setLifeState(new Morto(this.getPersonagem()));
+            p.setLifeState( Morto.getInstancia());
+            p.getLifeState().alterarEstrategias(p);
         }
-        else if(this.getPersonagem().getLife() > this.getLimiteSuperior())
+        else if(p.getLife() > this.getLimiteSuperior())
         {
-            this.getPersonagem().setLifeState(new Normal(this.getPersonagem()));
-            this.getPersonagem().getLifeState().verificarAlteracaoEstado();
+            p.setLifeState( Normal.getInstancia());
+            p.getLifeState().alterarEstrategias(p);
+            p.getLifeState().verificarAlteracaoEstado(p);
         }
+    }
+    
+    protected void alterarEstrategias(Personagem p)
+    {
+        p.setAtaque( AtaqueFraco.getInstancia());
+        p.setCorrida( CorridaDevagar.getInstancia());
+        // ataque fraco e velocidade lenta
     }
 }

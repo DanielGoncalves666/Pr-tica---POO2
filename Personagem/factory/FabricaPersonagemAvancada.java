@@ -1,6 +1,27 @@
-package Personagem;
+package Personagem.factory;
+
+import Personagem.Personagem;
+import Personagem.PersonagemFraco;
+import Personagem.PersonagemLadino;
+import Personagem.PersonagemMago;
+import Personagem.PersonagemPerfeito;
+import Personagem.PersonagemTanque;
 
 public class FabricaPersonagemAvancada extends FabricaPersonagem {
+    
+    private static FabricaPersonagemAvancada instancia = null;
+    
+    // impede a criação com o construtor
+    private FabricaPersonagemAvancada(){};
+
+    // lazy instantiation 
+    public static synchronized FabricaPersonagemAvancada getInstancia()
+    {
+        if(instancia == null)
+            instancia = new FabricaPersonagemAvancada();
+        
+        return instancia;
+    }
     
     public Personagem createPersonagem()
     {

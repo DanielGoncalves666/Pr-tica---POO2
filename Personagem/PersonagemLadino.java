@@ -8,11 +8,11 @@ public class PersonagemLadino extends Personagem{
     public PersonagemLadino()
     {
         this.setLife(100);
-        this.setLifeState(new Forte(this));
+        this.setLifeState(Forte.getInstancia());
         
-        this.setAtaque(new AtaqueFraco());
-        this.setCorrida(new CorridaRapida());
-        this.setPulo(new PuloAlto());
+        this.setAtaque( AtaqueFraco.getInstancia());
+        this.setCorrida( CorridaRapida.getInstancia());
+        this.setPulo( PuloAlto.getInstancia());
         
         this.adicionarEscudo(new Escudo2());
         this.adicionarEscudo(new Escudo1());

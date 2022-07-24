@@ -1,4 +1,6 @@
-package Personagem;
+package Personagem.factory;
+
+import Personagem.Personagem;
 
 public abstract class FabricaPersonagem {
     
@@ -9,6 +11,9 @@ public abstract class FabricaPersonagem {
         return createPersonagem();
     }
     
+    /*
+        Se adicionarmos ataques o suficiente as estratégias básicas e objetos decorados serão perdidos
+    */
     public void jogar()
     {
         Personagem p01 = createPersonagem();

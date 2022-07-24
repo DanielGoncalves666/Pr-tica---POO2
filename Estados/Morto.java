@@ -4,9 +4,19 @@ import Personagem.*;
 
 public class Morto extends LifeState
 {
-    public Morto(Personagem p)
+    private static Morto instancia = null;
+    
+    private Morto()
     {
-        super(p);   
+        super();
+    }
+    
+    public static synchronized Morto getInstancia()
+    {
+        if(instancia == null)
+            instancia = new Morto();
+        
+        return instancia;
     }
     
     public void setLimites()
@@ -15,8 +25,12 @@ public class Morto extends LifeState
         this.setLimiteSuperior(0);
     }
     
-    public void verificarAlteracaoEstado()
+    public void verificarAlteracaoEstado(Personagem p)
     {
+        //p.setLifeState(Morto.getInstancia()); // continua morto
+        //p.getLifeState().alterarEstrategias(p);
         System.out.print("Morto - Fim de jogo.\n");
     }
+    
+    protected void alterarEstrategias(Personagem p){}
 }

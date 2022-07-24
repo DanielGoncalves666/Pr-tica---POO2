@@ -8,11 +8,11 @@ public class PersonagemMago extends Personagem{
     public PersonagemMago()
     {
         this.setLife(100);
-        this.setLifeState(new Forte(this));
+        this.setLifeState(Forte.getInstancia());
         
-        this.setAtaque(new AtaqueForte());
-        this.setCorrida(new CorridaMedia());
-        this.setPulo(new PuloMedio());
+        this.setAtaque( AtaqueForte.getInstancia());
+        this.setCorrida( CorridaMedia.getInstancia());
+        this.setPulo( PuloMedio.getInstancia());
         
         this.adicionarEscudo(new Escudo2());
     }

@@ -3,28 +3,31 @@ package Estados;
 import Personagem.*;
 
 public abstract class LifeState
-{
-    private Personagem personagem;
+{    
+    /*
+        Para eliminar o atributo de instancia Personagem, foi necessário exigir que o personagem sofrendo
+        dano ou recuperando vida fosse também passado.
+        Deste modo, é possível alterar o valor da vida e alterar o estado diretamente no objeto da classe Personagem.
+    */
     
     private int limiteInferior;
     private int limiteSuperior;
     
-    public LifeState(Personagem p)
+    public LifeState()
     {
-        this.personagem = p;
         setLimites();
     }
     
-    public void sofrerDano(int dano)
+    public void sofrerDano(Personagem p, int dano)
     {
-        this.personagem.setLife(this.personagem.getLife() - dano);
-        verificarAlteracaoEstado();
+        p.setLife(p.getLife() - dano);
+        verificarAlteracaoEstado(p);
     }
 
-    public void recuperarVida(int recuperar)
+    public void recuperarVida(Personagem p, int recuperar)
     {
-        this.personagem.setLife(this.personagem.getLife() + recuperar);
-        verificarAlteracaoEstado();
+        p.setLife(p.getLife() + recuperar);
+        verificarAlteracaoEstado(p);
     }
     
     public void setLimiteInferior(int inferior)
@@ -47,11 +50,7 @@ public abstract class LifeState
         return this.limiteSuperior;
     }
     
-    public Personagem getPersonagem()
-    {
-        return personagem;
-    }
-    
     public abstract void setLimites();
-    public abstract void verificarAlteracaoEstado();
+    public abstract void verificarAlteracaoEstado(Personagem p);
+    protected abstract void alterarEstrategias(Personagem p);
 }

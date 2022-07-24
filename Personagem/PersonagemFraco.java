@@ -7,10 +7,10 @@ public class PersonagemFraco extends Personagem{
     public PersonagemFraco()
     {
         this.setLife(100);
-        this.setLifeState(new Forte(this));
+        this.setLifeState(Forte.getInstancia());
         
-        this.setAtaque(new AtaqueFraco());
-        this.setCorrida(new CorridaDevagar());
-        this.setPulo(new PuloBaixo());
+        this.setAtaque( AtaqueFraco.getInstancia());
+        this.setCorrida( CorridaDevagar.getInstancia());
+        this.setPulo( PuloBaixo.getInstancia());
     }
 }

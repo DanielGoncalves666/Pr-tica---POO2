@@ -8,11 +8,11 @@ public class PersonagemTanque extends Personagem{
     public PersonagemTanque()
     {
         this.setLife(100);
-        this.setLifeState(new Forte(this));
+        this.setLifeState(Forte.getInstancia());
         
-        this.setAtaque(new AtaqueMedio());
-        this.setCorrida(new CorridaDevagar());
-        this.setPulo(new PuloBaixo());
+        this.setAtaque( AtaqueMedio.getInstancia());
+        this.setCorrida( CorridaDevagar.getInstancia());
+        this.setPulo( PuloBaixo.getInstancia());
         
         this.adicionarEscudo(new Escudo5());
         this.adicionarEscudo(new Escudo5());

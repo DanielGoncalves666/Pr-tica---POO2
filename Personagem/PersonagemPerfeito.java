@@ -8,11 +8,11 @@ public class PersonagemPerfeito extends Personagem{
     public PersonagemPerfeito()
     {
         this.setLife(100);
-        this.setLifeState(new Forte(this));
+        this.setLifeState(Forte.getInstancia());
         
-        this.setAtaque(new AtaqueForte());
-        this.setCorrida(new CorridaRapida());
-        this.setPulo(new PuloAlto());
+        this.setAtaque( AtaqueForte.getInstancia());
+        this.setCorrida( CorridaRapida.getInstancia());
+        this.setPulo( PuloAlto.getInstancia());
         
         this.adicionarEscudo(new Escudo5());
         this.adicionarEscudo(new Escudo5());

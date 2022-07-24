@@ -1,12 +1,13 @@
 
+import Personagem.factory.*;
 import Personagem.*;
 
-public class PrincipalFactoryMethod {
+public class PrincipalSingleton {
 
     public static void main(String args[])
     {
-        FabricaPersonagem simples = new FabricaPersonagemSimples();
-        FabricaPersonagem complexa = new FabricaPersonagemAvancada();
+        FabricaPersonagem simples = FabricaPersonagemSimples.getInstancia();
+        FabricaPersonagem complexa = FabricaPersonagemAvancada.getInstancia();
         
         Personagem um = simples.criar();
         Personagem dois = complexa.criar();
