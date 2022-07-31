@@ -1,6 +1,7 @@
 package Estados;
 
 import Personagem.*;
+import Strategy.Ataque;
 
 public abstract class LifeState
 {    
@@ -48,6 +49,24 @@ public abstract class LifeState
     public double getLimiteSuperior()
     {
         return this.limiteSuperior;
+    }
+    
+    // realiza exclusivamente a alteração da estratégia ataque de modo a impedir a perda de decoradores
+    protected void alterarAtaque(Personagem p, Ataque atk)
+    {
+        Ataque a = p.getAtaque();
+        if(a.getProx() == null)
+            p.setAtaque(atk);
+        else
+        {
+            Ataque ant = a;
+            while(a.getProx() != null)
+            {
+                ant = a;
+                a = a.getProx();
+            }
+            ant.setProx(atk);
+        } 
     }
     
     public abstract void setLimites();

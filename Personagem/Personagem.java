@@ -127,6 +127,11 @@ public abstract class Personagem
          return this.Life;   
     }
     
+    public Ataque getAtaque()
+    {
+        return atk;
+    }
+    
     public void adicionarEscudo(Escudo novo)
     {
         // o primeiro escudo adicionado sera o ultima da lista

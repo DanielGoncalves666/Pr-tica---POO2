@@ -1,6 +1,6 @@
 package Strategy;
 
-public class AtaqueFraco implements Ataque
+public class AtaqueFraco extends Ataque
 {
     private static AtaqueFraco instancia = null;
     

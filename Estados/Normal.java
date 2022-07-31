@@ -43,7 +43,8 @@ public class Normal extends LifeState
     
     protected void alterarEstrategias(Personagem p)
     {
-        p.setAtaque( AtaqueMedio.getInstancia());
+        alterarAtaque(p, AtaqueMedio.getInstancia());
+
         p.setCorrida( CorridaMedia.getInstancia());
         // ataque medio e velocidade media   
     }

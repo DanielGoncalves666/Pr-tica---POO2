@@ -38,8 +38,9 @@ public class Forte extends LifeState
     
     protected void alterarEstrategias(Personagem p)
     {
-        p.setAtaque( AtaqueForte.getInstancia());
+        alterarAtaque(p, AtaqueForte.getInstancia());
+        
         p.setCorrida( CorridaRapida.getInstancia());
-        // ataque medio e velocidade media   
+        // ataque forte e velocidade rapida   
     }
 }

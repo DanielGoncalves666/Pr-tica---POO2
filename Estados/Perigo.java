@@ -43,7 +43,8 @@ public class Perigo extends LifeState
     
     protected void alterarEstrategias(Personagem p)
     {
-        p.setAtaque( AtaqueFraco.getInstancia());
+        alterarAtaque(p, AtaqueFraco.getInstancia());
+
         p.setCorrida( CorridaDevagar.getInstancia());
         // ataque fraco e velocidade lenta
     }

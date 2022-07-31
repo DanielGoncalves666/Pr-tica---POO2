@@ -1,11 +1,6 @@
 package Personagem.factory;
 
-import Personagem.Personagem;
-import Personagem.PersonagemFraco;
-import Personagem.PersonagemLadino;
-import Personagem.PersonagemMago;
-import Personagem.PersonagemPerfeito;
-import Personagem.PersonagemTanque;
+import Personagem.*;
 
 public class FabricaPersonagemAvancada extends FabricaPersonagem {
     

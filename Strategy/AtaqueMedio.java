@@ -1,6 +1,6 @@
 package Strategy;
 
-public class AtaqueMedio implements Ataque
+public class AtaqueMedio extends Ataque
 {
     private static AtaqueMedio instancia = null;
     
