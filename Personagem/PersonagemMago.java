@@ -14,6 +14,6 @@ public class PersonagemMago extends Personagem{
         this.setCorrida( CorridaMedia.getInstancia());
         this.setPulo( PuloMedio.getInstancia());
         
-        this.adicionarEscudo(new Escudo2());
+        this.adicionarEscudo(new EscudoFerro());
     }
 }

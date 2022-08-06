@@ -14,9 +14,9 @@ public class AtaqueMedio extends Ataque
         return instancia;
     }
     
-    public int ataque()
+    public double ataque()
     {
         System.out.print("Ataque Medio\n");
-        return 10;
+        return 1;
     }
 }

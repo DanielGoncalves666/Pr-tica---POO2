@@ -1,6 +1,6 @@
 package Escudos;
 
-public class Escudo2 extends Escudo
+public class EscudoFerro extends Escudo
 {
     public int processaDefesa(int ataque)
     {

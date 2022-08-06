@@ -14,7 +14,7 @@ public class PersonagemLadino extends Personagem{
         this.setCorrida( CorridaRapida.getInstancia());
         this.setPulo( PuloAlto.getInstancia());
         
-        this.adicionarEscudo(new Escudo2());
-        this.adicionarEscudo(new Escudo1());
+        this.adicionarEscudo(new EscudoFerro());
+        this.adicionarEscudo(new EscudoMadeira());
     }
 }

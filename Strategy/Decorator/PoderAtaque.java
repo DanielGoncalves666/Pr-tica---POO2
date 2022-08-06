@@ -17,7 +17,7 @@ public abstract class PoderAtaque extends Ataque
     }
     
     // decorar o comportamento dos objetos
-    public abstract int ataque();
+    public abstract double ataque();
     
     public boolean isFinal()
     {

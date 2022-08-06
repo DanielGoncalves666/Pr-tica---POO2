@@ -14,7 +14,7 @@ public class PersonagemTanque extends Personagem{
         this.setCorrida( CorridaDevagar.getInstancia());
         this.setPulo( PuloBaixo.getInstancia());
         
-        this.adicionarEscudo(new Escudo5());
-        this.adicionarEscudo(new Escudo5());
+        this.adicionarEscudo(new EscudoDiamante());
+        this.adicionarEscudo(new EscudoDiamante());
     }
 }

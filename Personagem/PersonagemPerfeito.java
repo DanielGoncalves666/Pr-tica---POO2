@@ -14,7 +14,7 @@ public class PersonagemPerfeito extends Personagem{
         this.setCorrida( CorridaRapida.getInstancia());
         this.setPulo( PuloAlto.getInstancia());
         
-        this.adicionarEscudo(new Escudo5());
-        this.adicionarEscudo(new Escudo5());
+        this.adicionarEscudo(new EscudoDiamante());
+        this.adicionarEscudo(new EscudoDiamante());
     }
 }

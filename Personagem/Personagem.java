@@ -1,5 +1,6 @@
 package Personagem;
 
+import Armas.Arma;
 import Strategy.Decorator.*;
 import Estados.*;
 import Strategy.*;
@@ -14,6 +15,7 @@ public abstract class Personagem
     private int Life;
     private LifeState vida;
     private Escudo prox = null;
+    private Arma weapon = null;
     
     private Ataque atk;
     private Correr run;
@@ -24,7 +26,6 @@ public abstract class Personagem
         this.setLife(70);
         this.setLifeState(Normal.getInstancia());
         this.setPulo(PuloMedio.getInstancia()); // para nao ficar incompleto
-        this.prox = null; // indica que nao ha escudos
     }
     
     public void sofrerDano(int dano)
@@ -49,8 +50,12 @@ public abstract class Personagem
     
     public void atacar(Personagem atacado)
     {
-        int dano = this.atk.ataque();
-        atacado.sofrerDano(dano);
+        double modificador = this.atk.ataque(); // recebe o modificador do ataque da arma equipada
+        if(weapon == null)
+            atacado.sofrerDano(0); // nenhuma arma equipada, nem mesmo os punhos. Nenhum dano
+        else
+            atacado.sofrerDano( (int) Math.floor(weapon.getDano() * modificador)); 
+            // o dano deferido é o dano da arma vezes o modificador, para baixo
     }
     
     public void correr()
@@ -137,5 +142,15 @@ public abstract class Personagem
         // o primeiro escudo adicionado sera o ultima da lista
         novo.setProx(this.prox);
         this.prox = novo;
+    }
+    
+    public void setArma(Arma weapon)
+    {
+        this.weapon = weapon;
+    }
+    
+    public Arma getArma()
+    {
+        return this.weapon;
     }
 }

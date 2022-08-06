@@ -10,11 +10,11 @@ public class Fogo extends PoderAtaque
     }
     
     // decorar o comportamento do objeto
-    public int ataque()
+    public double ataque()
     {
-        int ataqueAnterior = getAtaqueDecorado().ataque();
+        double motificarAnterior = getAtaqueDecorado().ataque();
         System.out.print("---Com Fogo\n");
 
-        return ataqueAnterior + 10;
+        return motificarAnterior + 0.3;
     }
 }

@@ -14,9 +14,9 @@ public class AtaqueForte extends Ataque
         return instancia;
     }
     
-    public int ataque()
+    public double ataque()
     {
         System.out.print("Ataque Forte\n");
-        return 20;
+        return 1.5;
     }
 }

@@ -1,10 +1,10 @@
 package Escudos;
 
-public class Escudo3 extends Escudo
+public class EscudoMadeira extends Escudo
 {
     public int processaDefesa(int ataque)
     {
-        ataque -= 3;
+        ataque -= 1;
         if(ataque < 0)
             ataque = 0;
         

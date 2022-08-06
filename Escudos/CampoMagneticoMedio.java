@@ -1,10 +1,10 @@
 package Escudos;
 
-public class Escudo1 extends Escudo
-{
+public class CampoMagneticoMedio extends Escudo {
+    
     public int processaDefesa(int ataque)
     {
-        ataque -= 1;
+        ataque -= 2;
         if(ataque < 0)
             ataque = 0;
         
