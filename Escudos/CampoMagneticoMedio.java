@@ -4,7 +4,7 @@ public class CampoMagneticoMedio extends Escudo {
     
     public int processaDefesa(int ataque)
     {
-        ataque -= 2;
+        ataque -= 3;
         if(ataque < 0)
             ataque = 0;
         

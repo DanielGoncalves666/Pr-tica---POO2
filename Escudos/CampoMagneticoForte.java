@@ -4,7 +4,7 @@ public class CampoMagneticoForte extends Escudo{
     
     public int processaDefesa(int ataque)
     {
-        ataque -= 3;
+        ataque -= 5;
         if(ataque < 0)
             ataque = 0;
         

@@ -32,5 +32,10 @@ public class Morto extends LifeState
         System.out.print("Morto - Fim de jogo.\n");
     }
     
+    public boolean getStatus()
+    {
+        return false;// estado que indica morto
+    }
+    
     protected void alterarEstrategias(Personagem p){}
 }

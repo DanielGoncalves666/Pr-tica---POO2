@@ -17,6 +17,6 @@ public class AtaqueForte extends Ataque
     public double ataque()
     {
         System.out.print("Ataque Forte\n");
-        return 1.5;
+        return 1.2;
     }
 }

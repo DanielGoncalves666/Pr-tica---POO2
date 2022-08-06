@@ -23,7 +23,59 @@ public class FabricaFuturista extends AbstractFactoryPersonagem {
     
     public Personagem criarPersonagem()
     {
-        return new robo();
+        Personagem robo = new Robo();
+        
+        robo.setArma(this.criarArma(0));
+        robo.adicionarEscudo(this.criarDefesa(3));
+        robo.adicionarEscudo(this.criarDefesa(3));
+        
+        return robo;
+    }
+    
+    public Personagem criarInimigo()
+    {
+        Personagem inimigo = null;
+        
+        double rand = Math.random();
+        
+        if(rand <= 0.2)
+        {
+            inimigo = new Robo();
+            inimigo.setArma(this.criarPunho());
+            inimigo.adicionarEscudo(this.criarDefesa(2));
+            inimigo.setLife(50);
+        }
+        else if(rand <= 0.4)
+        {
+            inimigo = new Robo();
+            inimigo.setArma(this.criarArma(0));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.setLife(40);
+        }
+        else if(rand <= 0.6)
+        {
+            inimigo = new RoboCanhoneiro();
+            inimigo.setArma(this.criarPunho());
+            inimigo.setLife(50);
+        }
+        else if(rand <= 0.8)
+        {
+            inimigo = new RoboCanhoneiro();
+            inimigo.setArma(this.criarArma(1));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.adicionarEscudo(this.criarDefesa(3));            
+            inimigo.setLife(40);
+        }
+        else
+        {
+            inimigo = new RoboCanhoneiro();
+            inimigo.setArma(this.criarArma(1));
+            inimigo.setLife(50);
+        }
+        
+        return inimigo;
     }
     
     public Escudo criarDefesa(int op)
@@ -49,9 +101,13 @@ public class FabricaFuturista extends AbstractFactoryPersonagem {
         return e;
     }
     
-    public Arma criarArma()
+    public Arma criarArma(int op)
     {
-        return new RaioParalisante();
+        if(op == 0)
+            return new RaioParalisante();
+        else
+            return new CanhaoIons();
+    
     }
     
     public Arma criarPunho()

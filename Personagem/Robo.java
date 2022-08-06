@@ -3,14 +3,14 @@ package Personagem;
 import Estados.Forte;
 import Strategy.*;
 
-public class Arqueiro extends Personagem {
+public class Robo extends Personagem {
     
-    public Arqueiro()
+    public Robo()
     {
         this.setLife(100);
         this.setLifeState(Forte.getInstancia());
         this.setAtaque(AtaqueForte.getInstancia());
-        this.setCorrida(CorridaMedia.getInstancia());
-        this.setPulo(PuloMedio.getInstancia());
+        this.setCorrida(CorridaRapida.getInstancia());
+        this.setPulo(PuloAlto.getInstancia());
     }
 }

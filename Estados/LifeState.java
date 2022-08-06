@@ -68,6 +68,11 @@ public abstract class LifeState
             ant.setProx(atk);
         } 
     }
+
+    public boolean getStatus()
+    {
+        return true;// estado indica vivo
+    }
     
     public abstract void setLimites();
     public abstract void verificarAlteracaoEstado(Personagem p);

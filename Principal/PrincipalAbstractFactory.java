@@ -1,3 +1,5 @@
+package Principal;
+
 
 import Armas.*;
 import Personagem.Personagem;
@@ -10,13 +12,13 @@ public class PrincipalAbstractFactory
         AbstractFactoryPersonagem medieval = FabricaMedieval.getInstancia();
         AbstractFactoryPersonagem futurista = FabricaFuturista.getInstancia();
         
-        Arma a = medieval.criarArma();
+        Arma a = medieval.criarArma(0);
         System.out.println("Arma1: " + a.getTipo());
         
         a = medieval.criarPunho();
         System.out.println("Punho1: " + a.getTipo());
         
-        a = futurista.criarArma();
+        a = futurista.criarArma(0);
         System.out.println("Arma2: " + a.getTipo());
         
         a = futurista.criarPunho();

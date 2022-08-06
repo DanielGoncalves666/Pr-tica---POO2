@@ -47,15 +47,15 @@ public class FabricaPersonagemAvancada extends FabricaPersonagem {
         rand = Math.random();
         if(rand <= 0.33)
         {
-            criado.adiconarPoderAtaque(1); // fogo
+            criado.adicionarPoderAtaque(1); // fogo
         }
         else if(rand <= 0.66)
         {
-            criado.adiconarPoderAtaque(2); // gelo
+            criado.adicionarPoderAtaque(2); // gelo
         }
         else
         {
-            criado.adiconarPoderAtaque(3); // trovao
+            criado.adicionarPoderAtaque(3); // trovao
         }
         
         return criado;

@@ -24,9 +24,9 @@ public class PrincipalStateCorrigido {
         Mario.correr();
         System.out.print("\n");
         
-        Mario.adiconarPoderAtaque(1);
-        Mario.adiconarPoderAtaque(2);
-        Mario.adiconarPoderAtaque(3);
+        Mario.adicionarPoderAtaque(1);
+        Mario.adicionarPoderAtaque(2);
+        Mario.adicionarPoderAtaque(3);
         
         // normal
         Mario.sofrerDano(50);

@@ -3,9 +3,9 @@ package Personagem;
 import Estados.Forte;
 import Strategy.*;
 
-public class Arqueiro extends Personagem {
+public class RoboCanhoneiro extends Personagem{
     
-    public Arqueiro()
+    public RoboCanhoneiro()
     {
         this.setLife(100);
         this.setLifeState(Forte.getInstancia());

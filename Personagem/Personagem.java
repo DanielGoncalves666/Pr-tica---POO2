@@ -73,7 +73,7 @@ public abstract class Personagem
         this.atk = novo;
     }
     
-    public void adiconarPoderAtaque(int tipo)
+    public void adicionarPoderAtaque(int tipo)
     {
         switch(tipo)
         {

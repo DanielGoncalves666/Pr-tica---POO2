@@ -17,6 +17,6 @@ public class AtaqueFraco extends Ataque
     public double ataque()
     {
         System.out.print("Ataque fraco\n");
-        return 0.5;
+        return 0.8;
     }
 }

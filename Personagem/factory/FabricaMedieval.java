@@ -23,7 +23,69 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
     
     public Personagem criarPersonagem()
     {
-        return new Arqueiro();
+        Personagem arqueiro = new Arqueiro();
+        
+        arqueiro.setArma(this.criarArma(0));
+        arqueiro.adicionarEscudo(this.criarDefesa(3));
+        arqueiro.adicionarEscudo(this.criarDefesa(3));
+        
+        return arqueiro;
+    }
+    
+    public Personagem criarInimigo()
+    {
+        Personagem inimigo = null;
+        
+        double rand = Math.random();
+        
+        if(rand <= 0.2)
+        {
+            inimigo = new Arqueiro();
+            inimigo.setArma(this.criarPunho());
+            inimigo.adicionarEscudo(this.criarDefesa(2));
+            inimigo.setLife(50);
+            inimigo.adicionarPoderAtaque(3);
+            inimigo.adicionarPoderAtaque(3);
+        }
+        else if(rand <= 0.4)
+        {
+            inimigo = new Arqueiro();
+            inimigo.setArma(this.criarArma(0));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.setLife(40);
+            inimigo.adicionarPoderAtaque(3);
+            inimigo.adicionarPoderAtaque(3);
+        }
+        else if(rand <= 0.6)
+        {
+            inimigo = new Lanceiro();
+            inimigo.setArma(this.criarPunho());
+            inimigo.setLife(50);
+            inimigo.adicionarPoderAtaque(3);
+            inimigo.adicionarPoderAtaque(3);
+        }
+        else if(rand <= 0.8)
+        {
+            inimigo = new Lanceiro();
+            inimigo.setArma(this.criarArma(1));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.adicionarEscudo(this.criarDefesa(3));
+            inimigo.adicionarEscudo(this.criarDefesa(3));            
+            inimigo.setLife(50);
+            inimigo.adicionarPoderAtaque(3);
+            inimigo.adicionarPoderAtaque(3);
+        }
+        else
+        {
+            inimigo = new Lanceiro();
+            inimigo.setArma(this.criarArma(1));
+            inimigo.setLife(50);
+            inimigo.adicionarPoderAtaque(3);
+            inimigo.adicionarPoderAtaque(3);
+        }
+        
+        return inimigo;
     }
     
     public Escudo criarDefesa(int op)
@@ -49,9 +111,12 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
         return e;
     }
     
-    public Arma criarArma()
+    public Arma criarArma(int op)
     {
-        return new ArcoFlecha();
+        if(op == 0)
+            return new ArcoFlecha();
+        else
+            return new Lanca();
     }
     
     public Arma criarPunho()
