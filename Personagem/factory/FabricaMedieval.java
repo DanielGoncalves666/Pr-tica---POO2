@@ -3,6 +3,7 @@ package Personagem.factory;
 import Armas.*;
 import Escudos.*;
 import Personagem.*;
+import Strategy.AtaqueForte;
 
 public class FabricaMedieval extends AbstractFactoryPersonagem {
     
@@ -44,7 +45,7 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
             inimigo.setArma(this.criarPunho());
             inimigo.adicionarEscudo(this.criarDefesa(2));
             inimigo.setLife(50);
-            inimigo.adicionarPoderAtaque(3);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
             inimigo.adicionarPoderAtaque(3);
         }
         else if(rand <= 0.4)
@@ -53,7 +54,7 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
             inimigo.setArma(this.criarArma(0));
             inimigo.adicionarEscudo(this.criarDefesa(3));
             inimigo.setLife(40);
-            inimigo.adicionarPoderAtaque(3);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
             inimigo.adicionarPoderAtaque(3);
         }
         else if(rand <= 0.6)
@@ -61,7 +62,7 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
             inimigo = new Lanceiro();
             inimigo.setArma(this.criarPunho());
             inimigo.setLife(50);
-            inimigo.adicionarPoderAtaque(3);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
             inimigo.adicionarPoderAtaque(3);
         }
         else if(rand <= 0.8)
@@ -73,7 +74,7 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
             inimigo.adicionarEscudo(this.criarDefesa(3));
             inimigo.adicionarEscudo(this.criarDefesa(3));            
             inimigo.setLife(50);
-            inimigo.adicionarPoderAtaque(3);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
             inimigo.adicionarPoderAtaque(3);
         }
         else
@@ -81,7 +82,7 @@ public class FabricaMedieval extends AbstractFactoryPersonagem {
             inimigo = new Lanceiro();
             inimigo.setArma(this.criarArma(1));
             inimigo.setLife(50);
-            inimigo.adicionarPoderAtaque(3);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
             inimigo.adicionarPoderAtaque(3);
         }
         

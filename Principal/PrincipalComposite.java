@@ -1,3 +1,5 @@
+package Principal;
+
 import Fases.*;
 import Personagem.*;
 import Personagem.factory.*;
@@ -6,6 +8,7 @@ public class PrincipalComposite {
     
     public static void main(String args[])
     {
+        /*
         FabricaMedieval fm = FabricaMedieval.getInstancia();
         Personagem p = fm.criarPersonagem();
         
@@ -16,6 +19,6 @@ public class PrincipalComposite {
         PhaseComponent sala3 = new Sala(sala1, sala2, fm.criarInimigo());
         
         sala3.jogar(p);
-    }
-    
+        */
+    } 
 }

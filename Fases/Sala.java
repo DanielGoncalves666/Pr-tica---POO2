@@ -4,10 +4,10 @@ import Personagem.Personagem;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Sala implements PhaseComponent{
+public abstract class Sala implements PhaseComponent{
     
-    private ArrayList<PhaseComponent> proxima;
-    private Personagem inimigo;
+    protected ArrayList<PhaseComponent> proxima;
+    protected Personagem inimigo;
     
     // salas com qualquer número de caminhos. Se um arraylist for passado, uma única saida é incluida.
     public Sala(ArrayList<PhaseComponent> proximas, Personagem inimigo)
@@ -35,11 +35,14 @@ public class Sala implements PhaseComponent{
         this.inimigo = inimigo;
     }
     
-    public void jogar(Personagem p)
+    protected abstract int selecionarCaminho();
+    protected abstract boolean lutar(Personagem p);
+    
+    public final void jogar(Personagem p)
     {
         this.statusInicial(p);
         
-        boolean sobreviveu = combate(p);
+        boolean sobreviveu = lutar(p);
         
         if(!sobreviveu)
         {
@@ -47,41 +50,10 @@ public class Sala implements PhaseComponent{
             return;
         }
         
-        Random generator = new Random();
-        int destino = generator.nextInt(proxima.size()); // entre 0 e o tamanho (exclusive)
+        int destino = selecionarCaminho();
         
         this.statusFinal(p);
         proxima.get(destino).jogar(p); // o jogador entra na próxima sala
-    }
-    
-    // retorna true se o personagem sobreviver
-    public boolean combate(Personagem p)
-    {
-        if(inimigo == null)
-            return true;
-               
-        while(true)
-        {
-            p.atacar(this.inimigo); // o jogador ataca primeiro
-            
-            if(!inimigo.getLifeState().getStatus())
-            {
-                //inimigo morreu
-                inimigo = null;
-                break;
-            }
-            
-            this.inimigo.atacar(p); // o inimigo ataca em seguida
-            
-            if(!p.getLifeState().getStatus())
-            {
-                // jogador morreu
-                return false;
-            }
-                
-        }
-        
-        return true;
     }
     
     public void statusInicial(Personagem p)

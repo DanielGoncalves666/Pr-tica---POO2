@@ -3,6 +3,7 @@ package Personagem.factory;
 import Armas.*;
 import Escudos.*;
 import Personagem.*;
+import Strategy.AtaqueForte;
 
 public class FabricaFuturista extends AbstractFactoryPersonagem {
     
@@ -44,6 +45,7 @@ public class FabricaFuturista extends AbstractFactoryPersonagem {
             inimigo.setArma(this.criarPunho());
             inimigo.adicionarEscudo(this.criarDefesa(2));
             inimigo.setLife(50);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
         }
         else if(rand <= 0.4)
         {
@@ -51,12 +53,14 @@ public class FabricaFuturista extends AbstractFactoryPersonagem {
             inimigo.setArma(this.criarArma(0));
             inimigo.adicionarEscudo(this.criarDefesa(3));
             inimigo.setLife(40);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
         }
         else if(rand <= 0.6)
         {
             inimigo = new RoboCanhoneiro();
             inimigo.setArma(this.criarPunho());
             inimigo.setLife(50);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
         }
         else if(rand <= 0.8)
         {
@@ -65,14 +69,15 @@ public class FabricaFuturista extends AbstractFactoryPersonagem {
             inimigo.adicionarEscudo(this.criarDefesa(3));
             inimigo.adicionarEscudo(this.criarDefesa(3));
             inimigo.adicionarEscudo(this.criarDefesa(3));
-            inimigo.adicionarEscudo(this.criarDefesa(3));            
             inimigo.setLife(40);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
         }
         else
         {
             inimigo = new RoboCanhoneiro();
             inimigo.setArma(this.criarArma(1));
             inimigo.setLife(50);
+            inimigo.setAtaque(AtaqueForte.getInstancia());
         }
         
         return inimigo;
