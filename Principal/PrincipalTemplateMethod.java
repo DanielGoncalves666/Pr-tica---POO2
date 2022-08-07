@@ -1,10 +1,11 @@
+package Principal;
 
 import Personagem.Personagem;
 import Fases.*;
 import Personagem.factory.*;
 
 
-public class PrincipalAbstractMethod {
+public class PrincipalTemplateMethod {
 
     public static void main(String args[])
     {

@@ -2,8 +2,8 @@ package Fases;
 
 import Personagem.Personagem;
 import java.util.ArrayList;
-import java.util.Random;
 
+// atua como receiver
 public abstract class Sala implements PhaseComponent{
     
     protected ArrayList<PhaseComponent> proxima;
@@ -38,7 +38,8 @@ public abstract class Sala implements PhaseComponent{
     protected abstract int selecionarCaminho();
     protected abstract boolean lutar(Personagem p);
     
-    public final void jogar(Personagem p)
+    // action do receiver
+    public synchronized final void jogar(Personagem p)
     {
         this.statusInicial(p);
         

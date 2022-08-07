@@ -5,11 +5,13 @@ import Strategy.Decorator.*;
 import Estados.*;
 import Strategy.*;
 import Escudos.*;
+import Jogar.*;
 
 /**
  * Classe abstrata Personagem
  */
 
+// atua como invoker
 public abstract class Personagem
 {
     private int Life;
@@ -152,5 +154,11 @@ public abstract class Personagem
     public Arma getArma()
     {
         return this.weapon;
+    }
+    
+    public void jogar(JogarJogo jj)
+    {
+        // como se jogará apenas uma vez e logo de cara, não há necessidade de armazenar o command para utilização posterior
+        jj.execute(this);
     }
 }

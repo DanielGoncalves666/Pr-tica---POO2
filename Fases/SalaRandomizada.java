@@ -1,6 +1,7 @@
 package Fases;
 
 import Personagem.Personagem;
+import Personagem.factory.FabricaFuturista;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -40,7 +41,8 @@ public class SalaRandomizada extends Sala {
             if(!inimigo.getLifeState().getStatus())
             {
                 //inimigo morreu
-                inimigo = null;
+                inimigo = FabricaFuturista.getInstancia().criarInimigo(); // cria um novo inimigo 
+                // seria ideal saber de qual fábrica veio o primeiro inimigo, mas como não sabemos aqui, coloquei uma fábrica qualquer
                 break;
             }
             

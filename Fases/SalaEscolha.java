@@ -1,6 +1,7 @@
 package Fases;
 
 import Personagem.Personagem;
+import Personagem.factory.FabricaMedieval;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -56,7 +57,8 @@ public class SalaEscolha extends Sala {
         {
             System.out.println("Certa resposta! O inimigo morreu e você pode prosseguir!");
             inimigo.sofrerDano(100);
-            inimigo = null;
+            inimigo = FabricaMedieval.getInstancia().criarInimigo(); // cria um novo inimigo
+            // seria ideal saber de qual fábrica veio o primeiro inimigo, mas como não sabemos aqui, coloquei uma fábrica qualquer            
             return true;
         }
            
