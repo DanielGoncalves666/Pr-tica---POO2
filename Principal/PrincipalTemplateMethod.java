@@ -32,7 +32,7 @@ public class PrincipalTemplateMethod {
         PhaseComponent sala22 = new SalaEscolha(saida1, sala11, fm.criarInimigo());
         PhaseComponent sala33 = new SalaEscolha(sala11, sala22, fm.criarInimigo());
         
-        sala33.jogar(p);
+        sala33.jogar(pp);
         
     }
 }

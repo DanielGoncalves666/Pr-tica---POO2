@@ -6,9 +6,9 @@ import Personagem.Personagem;
 // command concreto
 public class JogarJogoConcreto implements JogarJogo {
     
-    private Sala s;
+    private PhaseComponent s;
     
-    public JogarJogoConcreto(Sala s)
+    public JogarJogoConcreto(PhaseComponent s)
     {
         this.s = s;
     }

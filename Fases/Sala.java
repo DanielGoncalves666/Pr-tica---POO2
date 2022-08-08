@@ -41,13 +41,15 @@ public abstract class Sala implements PhaseComponent{
     // action do receiver
     public synchronized final void jogar(Personagem p)
     {
+        System.out.println("\nExecutando Thread: " + Thread.currentThread().getName());
+        
         this.statusInicial(p);
         
         boolean sobreviveu = lutar(p);
         
         if(!sobreviveu)
         {
-            System.out.println("O jogador morreu para " + this.inimigo.toString().substring(0, this.inimigo.toString().indexOf('@')));
+            System.out.println("O jogador morreu para " + this.inimigo.toString());
             return;
         }
         
@@ -59,13 +61,11 @@ public abstract class Sala implements PhaseComponent{
     
     public void statusInicial(Personagem p)
     {
-        String id = p.toString().substring(0, p.toString().indexOf('@'));
-        System.out.println("Personagem: "+id);        
+        System.out.println("Personagem: " + p.toString());        
         
         try
         {
-            String ini = this.inimigo.toString().substring(0, this.inimigo.toString().indexOf('@'));
-            System.out.println("Inimigo: "+ini);    
+            System.out.println("Inimigo: " + this.inimigo.toString());    
             
             try
             {

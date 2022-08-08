@@ -12,12 +12,13 @@ import Jogar.*;
  */
 
 // atua como invoker
-public abstract class Personagem
+public abstract class Personagem implements Runnable
 {
     private int Life;
     private LifeState vida;
     private Escudo prox = null;
     private Arma weapon = null;
+    private JogarJogo jj = null; // armazena o jogo sendo jogado
     
     private Ataque atk;
     private Correr run;
@@ -158,7 +159,15 @@ public abstract class Personagem
     
     public void jogar(JogarJogo jj)
     {
-        // como se jogará apenas uma vez e logo de cara, não há necessidade de armazenar o command para utilização posterior
+        this.jj = jj;
+    }
+    
+    public void run()
+    {
+        if(jj == null)
+            System.out.println("Nenhum jogo disponível: " + this.toString() );
+            
+        System.out.println("Personagem " + this.toString() + " entrando no labirinto.");
         jj.execute(this);
     }
 }
