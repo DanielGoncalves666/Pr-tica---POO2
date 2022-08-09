@@ -24,6 +24,9 @@ public abstract class Personagem implements Runnable
     private Correr run;
     private Pulo jump;
     
+    int x;
+    int y;
+    
     public Personagem()
     {
         this.setLife(70);
@@ -169,5 +172,21 @@ public abstract class Personagem implements Runnable
             
         System.out.println("Personagem " + this.toString() + " entrando no labirinto.");
         jj.execute(this);
+    }
+    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }
